@@ -1,0 +1,44 @@
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: 'Aleo', serif;
+}
+
+#hero-home-signup {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+#hero-content {
+  margin-top: 75px;
+}
+
+.story-box {
+  max-width: 300px;
+  border: 1px solid grey;
+  padding: 2px 3px 3px 3px;
+  margin: 5px 5px 5px 5px;
+}
+
+.content-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+#card-subtitle {
+  font-size: 1rem;
+}
+
+.starter-card:hover {
+  box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
+}

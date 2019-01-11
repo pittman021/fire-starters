@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "timpittman",
+    "password": "admin",
+    "database": "fire_starters_development",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "timpittman",
+    "password": "admin",
+    "database": "fire_starters_test",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "production": {
+    "username": "timpittman",
+    "password": "admin",
+    "database": "fire_starters_production",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  }
+}

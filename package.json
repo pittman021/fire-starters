@@ -6,6 +6,20 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "engines": {
+    "node": "11.4.0"
+  },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "bulma": "^0.7.2",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "markdown-it": "^8.4.2",
+    "nodemon": "^1.18.9",
+    "pg": "^7.7.1",
+    "sequelize": "^4.42.0",
+    "slug": "^0.9.3"
+  }
 }
