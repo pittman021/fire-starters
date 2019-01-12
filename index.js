@@ -50,7 +50,7 @@ app.get('/about', function(req, res) {
   res.render('about');
 });
 
-let port = 3000;
+let port = process.env.PORT || 3000;
 app.listen(port, () => {
   console.log('server is up and running');
 });
