@@ -1,12 +1,33 @@
 <% include ../application/_header.ejs %>
 
-<h2>Login</h2>
-<form action="/admin/login" method="post">
-	<input type="text" name="username" placeholder="username" >
-	<input type="password" name="password" placeholder="password" >
-	<input class="btn" type="submit"></input>
-</form>
+<div class="container content">
 
+	<section class="section columns">
+
+		<div class="column is-6">
+
+			<h2>Login</h2>
+			<form action="/admin/login" method="post">
+				<div class="field">
+					<div class="control">
+								<input class="input" type="text" name="username" placeholder="username" >
+					</div>
+				</div>
+				<div class="field">
+					<div class="control">
+									<input class="input" type="password" name="password" placeholder="password" >
+					</div>
+				</div>
+				<input class="button" type="submit"></input>
+			</form>
+
+		</div>
+
+	</section>
+
+
+
+</div>
 
 
 <% include ../application/_footer.ejs %>

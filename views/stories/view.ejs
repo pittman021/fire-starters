@@ -5,11 +5,11 @@
 <div class="container content">
 
   <% if(adminUser) { %>
-    <form action="/admin/stories<%= story.id %>/delete">
-      <button class="button" type="submit">Delete Story</button>
+    <form action="/stories/<%= story.id %>?_method=DELETE" method="POST">
+      <button class="button is-danger" type="submit">Delete Story</button>
     </form>
 
-    <a class="button" href="/admin/stories/<%= story.id %>/edit">Edit Story</a>
+    <a class="button is-info" href="/stories/<%= story.id %>/edit">Edit Story</a>
 
     <% } %>
 	<section class="section">
