@@ -1,0 +1,45 @@
+<% include ../application/_header.ejs %>
+<% include ../application/_navbar.ejs %>
+
+<div class="container content">
+
+<section class="section columns">
+
+	<%= JSON.stringify(story) %>
+
+	<div class="column is-12 content-container">
+		<h2> Edit Post </h2>
+		<form action="/admin/stories/<%= story.id %>?_method=PUT" method="POST">
+			<div class="field">
+				<div class="control">
+					<label class="label">Post Title<label>
+					<input class="input" type="text" name="title" value="<%= story.title %>" />
+				</div>
+			</div>
+
+			<div class="field">
+				<div class="control">
+					<label class="label">Contact Name<label>
+						<input class="input" type="text" value="<%= story.contact_name %>" name="contact_name" />
+				</div>
+			</div>
+			<div class="field">
+				<div class="control">
+					<label class="label">Image Path?<label>
+						<input class="input" type="text" value="<%= story.img %>" name="img" />
+				</div>
+			</div>
+			<div class="field">
+				<div class="control">
+					<label class="label">Content<label>
+						<textarea class="textarea" name="content" ><%= story.content %></textarea>
+				</div>
+			</div>
+			<input class="button" type="submit">
+		</form>
+	</div>
+</section>
+
+</div>
+
+<% include ../application/_footer.ejs %>

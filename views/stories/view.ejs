@@ -3,6 +3,15 @@
   <% include ../application/_navbar.ejs %>
 
 <div class="container content">
+
+  <% if(adminUser) { %>
+    <form action="/admin/stories<%= story.id %>/delete">
+      <button class="button" type="submit">Delete Story</button>
+    </form>
+
+    <a class="button" href="/admin/stories/<%= story.id %>/edit">Edit Story</a>
+
+    <% } %>
 	<section class="section">
 		<div class="article-title has-text-centered">
 			<h1 class="title is-1"><%= story.title %></h1>
