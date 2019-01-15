@@ -62,11 +62,19 @@ app.get('/stories/:slug', (req, res) => {
 
 // admin routes, login, story, new
 
-app.get('/admin', function(req, res) {
+app.get('/admin/login', function(req, res) {
   res.render('admin/login');
 });
 
-app.post('/admin', passport.authenticate('local-login', { failureRedirect: '/admin' }), function(req, res) {
+app.get('/admin/signup', function(req, res) {
+  res.render('admin/signup');
+});
+
+app.post('/admin/signup', passport.authenticate('local-signup', { failureRedirect: '/admin/signup' }), (req, res) => {
+  res.redirect('/');
+});
+
+app.post('/admin/login', passport.authenticate('local-login', { failureRedirect: '/admin/login' }), function(req, res) {
   res.redirect('/');
 });
 

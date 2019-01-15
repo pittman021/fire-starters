@@ -13,9 +13,9 @@ passport.deserializeUser(function(id, done) {
   });
 });
 
-// var generateHash = function(password) {
-//   return bCrypt.hashSync(password, bCrypt.genSaltSync(8), null);
-// };
+var generateHash = function(password) {
+  return bCrypt.hashSync(password, bCrypt.genSaltSync(8), null);
+};
 
 passport.use(
   'local-signup',
@@ -33,7 +33,7 @@ passport.use(
           username: username,
           password: userPassword
         };
-        models.user.create(data).then(newUser => {
+        db.AdminUsers.create(data).then(newUser => {
           return done(null, newUser);
         });
       }
