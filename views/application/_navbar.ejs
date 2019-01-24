@@ -18,15 +18,14 @@
         <div class="tabs is-right">
             <ul>
               <li class="navbar-item">
-              <a class="is-2" href="/">Tools</a>
-              </li>
-              <li class="navbar-item">
                 <a href="/about">About</a>
                 </li>
                 <% if(adminUser) { %>
                   <li class="navbar-item">
                     <a href="/stories/new">Add Post</a>
                     </li>
+                  <li class="navbar-item">
+                    <a href="/admin/logout">Logout</a>
               <% } %>
 
           </ul>

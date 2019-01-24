@@ -7,7 +7,7 @@ module.exports = app => {
   });
 
   // Logout
-  app.get('/logout', (req, res) => {
+  app.get('/admin/logout', (req, res) => {
     req.logout();
     res.redirect('/');
   });

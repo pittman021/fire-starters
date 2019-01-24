@@ -1,8 +1,21 @@
 
   <% include ../application/_header.ejs %>
-  <% include ../application/_navbar.ejs %>
 
-<div class="container content">
+
+  <section class="hero is-small is-light is-bold">
+    <div class="hero-head">
+        <% include ../application/_navbar.ejs %>
+    </div>
+    <div class="hero-body">
+      <div class="container has-text-centered">
+  			<h1 class="title is-1">FIRE Stories</h1>
+  			<p class="subtitle is-3">
+  			</p>
+      <div>
+  </section>
+
+  <div class="container content">
+
 
   <% if(adminUser) { %>
     <form action="/stories/<%= story.id %>?_method=DELETE" method="POST">
@@ -16,12 +29,13 @@
 		<div class="article-title has-text-centered">
 			<h1 class="title is-1"><%= story.title %></h1>
 		</div>
-	</section>
-	<section class="section columns">
 
+
+	<div class="section columns">
 		<div class="column is-12 content-container">
 			<%- story.content %>
 		</div>
+  </div>
 	</section>
 
 </div>
