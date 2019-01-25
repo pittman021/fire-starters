@@ -27,31 +27,22 @@
           </div>
         </div>
       </div>
-<!--End mc_embed_signup-->
-          <!-- <div class="field is-grouped">
-            <div class="control is-expanded">
-                <input class="input is-medium" type="text" placeholder="Your best email" />
-            </div>
-            <div class="control">
-              <button class="button is-medium is-info" type="submit">Sign me up</button>
-            </div>
-          </div>
-        </form>
-        <br>
-        <p class="subtitle">Want me to send you FIRE Stories via email? Sign-up above</p> -->
     </div>
   </section>
     <div class="container">
-      <div class="section">
+      <div class="section content">
+        <div class="has-text-centered">
+        <h2>Past Interviews</h2>
+        </div>
       <div class="columns is-multiline">
         <% stories.forEach(function(s) { %>
           <div class="column is-4">
             <a href="/stories/<%= s.slug %>">
             <div class="card starter-card">
               <div class="card-image">
-                <figure class="image is-4by3">
+                <div class="image is-4by3">
                   <img src="/images/<%= s.img %>">
-                </figure>
+                </div>
               </div>
               <div class="card-content">
                 <p class="title is-5"><%= s.title %></p>
@@ -66,24 +57,5 @@
         </div>
       </div>
     </div>
-
-  		<!-- <section style="background-color: #fafafa" class="section value content">
-  			<ul>
-  			</ul> -->
-  			<!-- <div class="container content text-centered">
-  				<div class="columns is-vcentered">
-  					<div class="column">
-  						<h3 class="title is-3">Heading 1</h3></br>
-  							<p class="subtitle">Description 2 goes here
-
-  						 </p>
-  					</div>
-  					<div class="column text-centered">
-  						<h3 class="title is-3">Heading 2s</h3></br>
-  							<p class="subtitle">Description 3 goes here.</p>
-  				</div>
-  			</div>
-  		</div> -->
-  	<!-- </section> -->
 
     <% include ./application/_footer.ejs %>
