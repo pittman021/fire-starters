@@ -6,7 +6,7 @@ const fs = require('fs');
 const multer = require('multer');
 
 const storage = multer.diskStorage({
-  destination: 'public/images/',
+  destination: 'public/images/uploads',
   filename: function(req, file, cb) {
     // const index = file.mimetype.indexOf('/');
     // const slice = file.mimetype.slice(index + 1);
