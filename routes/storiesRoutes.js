@@ -2,6 +2,19 @@ const isLoggedIn = require('../services/isLoggedIn');
 const md = require('markdown-it')();
 const db = require('../models/index');
 const slug = require('slug');
+const fs = require('fs');
+const multer = require('multer');
+
+const storage = multer.diskStorage({
+  destination: 'public/images/',
+  filename: function(req, file, cb) {
+    // const index = file.mimetype.indexOf('/');
+    // const slice = file.mimetype.slice(index + 1);
+    cb(null, file.originalname);
+  }
+});
+
+const upload = multer({ storage: storage });
 
 module.exports = app => {
   // stories view //
@@ -19,13 +32,12 @@ module.exports = app => {
   });
 
   // admin routes, login, story, new
-
-  app.post('/stories', isLoggedIn, function(req, res) {
+  app.post('/stories', isLoggedIn, upload.single('img'), function(req, res) {
     db.Stories.create({
       contact_name: req.body.contact_name,
       title: req.body.title,
       slug: slug(req.body.title),
-      img: req.body.img,
+      img: req.file.originalname,
       content: req.body.content
     }).then(newStory => {
       res.redirect('/');
@@ -55,11 +67,51 @@ module.exports = app => {
       });
   });
 
-  app.delete('/stories/:id', function(req, res) {
-    db.Stories.destroy({
+  app.put('/stories/:id/image', upload.single('img'), function(req, res) {
+    console.log(req.file, req.file.filename);
+    db.Stories.find({
       where: { id: req.params.id }
-    }).then(deletedStory => {
-      res.redirect('/');
+    }).then(story => {
+      var img = req.body.img;
+      console.log(img);
+      var storyData = story.get({ plain: true });
+      var path = `public/images${storyData.img}`;
+
+      fs.exists(path, exists => {
+        if (exists) {
+          fs.unlink(path, err => {
+            if (err) {
+              console.log(err);
+            } else {
+              story.update({ img: req.file.filename }).then(() => {
+                console.log(`${story.img} was deleted`);
+                res.redirect('/');
+              });
+            }
+          });
+        } else {
+          story.update({ img: req.file.filename }).then(() => {
+            res.redirect('/');
+          });
+        }
+      });
     });
   });
+
+  // ---- done
+  app.delete('/stories/:id', function(req, res) {
+    db.Stories.findById(req.params.id).then(story => {
+      console.log(story);
+      var path = `public/images/${story.img}`;
+      fs.unlink(path, err => {
+        if (err) throw err;
+        story.destroy().then(deletedStory => {
+          res.redirect('/');
+        });
+      });
+    });
+
+    res.redirect('/');
+  });
+  // });
 };

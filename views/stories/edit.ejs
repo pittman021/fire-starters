@@ -6,8 +6,21 @@
 <section class="section columns">
 
 	<div class="column is-12 content-container">
-		<h2> Edit Post </h2>
-		<form action="/stories/<%= story.id %>?_method=PUT" method="POST">
+		<h2> Edit Story </h2>
+
+		<h3> Edit Image </h3>
+		<form action="/stories/<%= story.id %>/image?_method=PUT" method="POST" enctype="multipart/form-data"  >
+			<div class="field">
+				<div class="control">
+					<label class="label">Image<label>
+						<input class="input" type="file" value="<%= story.img %>" name="img" />
+				</div>
+			</div>
+			<input type='submit' class="button">
+		</form>
+
+			<h3> Edit Content </h3>
+		<form action="/stories/<%= story.id %>?_method=PUT" method="POST" >
 			<div class="field">
 				<div class="control">
 					<label class="label">Post Title<label>
@@ -21,12 +34,7 @@
 						<input class="input" type="text" value="<%= story.contact_name %>" name="contact_name" />
 				</div>
 			</div>
-			<div class="field">
-				<div class="control">
-					<label class="label">Image Path?<label>
-						<input class="input" type="text" value="<%= story.img %>" name="img" />
-				</div>
-			</div>
+
 			<div class="field">
 				<div class="control">
 					<label class="label">Content<label>
