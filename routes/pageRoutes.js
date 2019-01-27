@@ -2,7 +2,10 @@ const db = require('../models/index');
 
 module.exports = app => {
   app.get('/', function(req, res) {
-    db.Stories.findAll({})
+    db.Stories.findAll({
+      limit: 100,
+      order: [['updatedAt', 'DESC']]
+    })
       .then(stories => {
         res.render('home', { stories: stories });
       })

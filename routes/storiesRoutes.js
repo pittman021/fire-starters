@@ -98,7 +98,6 @@ module.exports = app => {
     });
   });
 
-  // ---- done
   app.delete('/stories/:id', function(req, res) {
     db.Stories.findById(req.params.id).then(story => {
       console.log(story);
