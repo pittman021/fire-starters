@@ -1,0 +1,25 @@
+<% include ../../application/_header.ejs %>
+<% include ../../application/_navbar.ejs %>
+
+<div class="container content">
+
+<section class="section columns">
+
+	<div class="column is-12 content-container">
+		<h2> Add New Image </h2>
+
+		<form action="/admin/images" method="POST" enctype="multipart/form-data">
+			<div class="field">
+				<div class="control">
+					<label class="label">Image<label>
+						<input class="input" type="file" name="img" />
+				</div>
+			</div>
+			<input class="button" type="submit">
+		</form>
+	</div>
+</section>
+
+</div>
+
+<% include ../../application/_footer.ejs %>

@@ -1,4 +1,21 @@
 const passport = require('passport');
+const isLoggedIn = require('../services/isLoggedIn');
+const md = require('markdown-it')();
+const db = require('../models/index');
+const slug = require('slug');
+const fs = require('fs');
+const multer = require('multer');
+
+const storage = multer.diskStorage({
+  destination: 'public/images/uploads',
+  filename: function(req, file, cb) {
+    // const index = file.mimetype.indexOf('/');
+    // const slice = file.mimetype.slice(index + 1);
+    cb(null, file.originalname);
+  }
+});
+
+const upload = multer({ storage: storage });
 
 module.exports = app => {
   // Login Form
@@ -17,11 +34,11 @@ module.exports = app => {
     res.redirect('/');
   });
 
-  // app.get('/admin/signup', function(req, res) {
-  //   res.render('admin/signup');
-  // });
+  app.get('/admin/images', isLoggedIn, function(req, res) {
+    res.render('admin/images/new');
+  });
 
-  // app.post('/admin/signup', passport.authenticate('local-signup', { failureRedirect: '/admin/signup' }), (req, res) => {
-  //   res.redirect('/');
-  // });
+  app.post('/admin/images', isLoggedIn, upload.single('img'), function(req, res) {
+    res.redirect('/');
+  });
 };

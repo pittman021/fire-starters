@@ -23,6 +23,10 @@ module.exports = app => {
     res.render('stories/new');
   });
 
+  app.get('/stories/images', isLoggedIn, function(req, res) {
+    res.render('stories/images');
+  });
+
   app.get('/stories/:slug', (req, res) => {
     db.Stories.find({ where: { slug: req.params.slug } }).then(story => {
       var article_markdown = md.render(story.content);
@@ -67,13 +71,15 @@ module.exports = app => {
       });
   });
 
+  app.post('/stories/images', isLoggedIn, upload.single('img'), function(req, res) {
+    res.redirect('/');
+  });
+
   app.put('/stories/:id/image', upload.single('img'), function(req, res) {
-    console.log(req.file, req.file.filename);
     db.Stories.find({
       where: { id: req.params.id }
     }).then(story => {
       var img = req.body.img;
-      console.log(img);
       var storyData = story.get({ plain: true });
       var path = `public/images${storyData.img}`;
 
