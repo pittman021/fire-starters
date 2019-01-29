@@ -2,17 +2,14 @@
   <% include _header.ejs %>
 
  <% include ../application/_navbar.ejs %>
-  <!-- <section class="hero is-small is-light is-bold">
+  <section class="hero is-small is-bold">
     <div class="hero-head">
-
     </div>
     <div class="hero-body">
-      <div class="container has-text-centered">
-  			<h1 class="title is-1">FIRE Stories</h1>
-  			<p class="subtitle is-3">
-  			</p>
-      <div>
-  </section> -->
+      <div class="article-title has-text-centered">
+        <h1 class="title is-1"><%= story.title %></h1>
+      </div>
+  </section>
 
   <div class="container content">
 
@@ -26,11 +23,6 @@
 
     <% } %>
 	<section class="section">
-		<div class="article-title has-text-centered">
-			<h1 class="title is-1"><%= story.title %></h1>
-		</div>
-
-
 	<div class="section columns">
 		<div class="column is-12 content-container">
 			<%- story.content %>

@@ -1,5 +1,5 @@
 html {
-  font-size: 16px;
+  font-size: 17px;
 }
 
 body {
@@ -14,13 +14,20 @@ h5 {
   font-family: 'Aleo', serif;
 }
 
-#hero-home-signup {
-  max-width: 500px;
-  margin: 0 auto;
-}
-
 #hero-content {
   margin-top: 75px;
+}
+
+.hero-body {
+  margin-top: 64px;
+}
+
+#hero-subtitle {
+  margin-top: 5px;
+}
+
+#hero-subtitle p {
+  margin-bottom: 1.2rem;
 }
 
 .story-box {
@@ -46,4 +53,13 @@ h5 {
 .card-image-figure {
   max-width: 75%;
   margin: 0 auto;
+}
+
+.hero-ctas {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+#hero-title {
+  font-size: 74px;
 }

@@ -6,22 +6,32 @@
     </div>
     <div class="hero-body">
       <div class="container has-text-centered">
-  			<h1 class="title is-1">FIRE Stories</h1>
-  			<p class="subtitle is-3">
+        <div class="columns hero-ctas">
+          <div class="column is-6">
+  			      <h1 class="title is-1" id="hero-title">FIRE Stories</h1>
+               <h2 class="subtitle is-4">(Financial Independence, Retire Early)</h2>
+          </div>
+          <div class="column is-6" id="hero-subtitle">
+  			    <p class="subtitle">
             Get interviews every week with people who acheived early retirement & financial independence
-  			</p>
-      <div>
+  			    </p>
+
+
 
         <div id="hero-home-signup">
           <!-- Begin Mailchimp Signup Form -->
-
           <div id="mc_embed_signup">
             <form action="https://timpittman.us7.list-manage.com/subscribe/post?u=5da9220e0fdafc842defd9112&amp;id=e16ce6c8ed" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-              <div id="mc_embed_signup_scroll">
-                <input type="email" value="" name="EMAIL" class="email is-medium" id="mce-EMAIL" placeholder="Email Address" required>
-                <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-                <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_5da9220e0fdafc842defd9112_e16ce6c8ed" tabindex="-1" value=""></div>
-                <div class="clear"><input type="submit" value="I want!" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+              <div class="field has-addons" id="mc_embed_signup_scroll">
+                <p class="control is-expanded">
+                  <input type="email" value="" name="EMAIL" class="email input" id="mce-EMAIL" placeholder="Email Address" required>
+                </p>
+                <div style="position: absolute; left: -5000px;" aria-hidden="true">
+                  <input class="input" type="text" name="b_5da9220e0fdafc842defd9112_e16ce6c8ed" tabindex="-1" value="">
+                </div>
+                <div class="control">
+                  <input type="submit" value="I'm in!" name="subscribe" id="mc-embedded-subscribe" class="button is-info">
+                </div>
               </div>
             </form>
           </div>
@@ -29,12 +39,19 @@
       </div>
     </div>
   </section>
+    </div>
+      </div>
+
+
+
     <div class="container">
       <div class="section content">
         <div class="has-text-centered">
         <h2>Past Interviews</h2>
         </div>
       <div class="columns is-multiline">
+
+
         <% stories.forEach(function(s) { %>
           <div class="column is-3">
             <a href="/stories/<%= s.slug %>">
