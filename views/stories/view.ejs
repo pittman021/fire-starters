@@ -13,8 +13,7 @@
 
   <div class="container content">
 
-
-  <% if(adminUser) { %>
+    <% if(adminUser) { %>
     <form action="/stories/<%= story.id %>?_method=DELETE" method="POST">
       <button class="button is-danger" type="submit">Delete Story</button>
     </form>
@@ -23,7 +22,7 @@
 
     <% } %>
 	<section class="section">
-	<div class="section columns">
+	<div class="columns">
 		<div class="column is-12 content-container">
 			<%- story.content %>
 		</div>

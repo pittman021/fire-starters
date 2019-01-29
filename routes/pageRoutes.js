@@ -4,7 +4,7 @@ module.exports = app => {
   app.get('/', function(req, res) {
     db.Stories.findAll({
       limit: 100,
-      order: [['updatedAt', 'DESC']]
+      order: [['createdAt', 'DESC']]
     })
       .then(stories => {
         res.render('home', { stories: stories });
