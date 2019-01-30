@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= story.title %></title>
+    <title>FIRE Stories - <%= story.title %></title>
     <meta name="description" content>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" type="text/css" href="/css/bulma.css">
@@ -9,21 +9,13 @@
 		<link rel="shortcut icon" type="image/png" href="/images/favicon-16x16.png"/>
 		<link href="https://fonts.googleapis.com/css?family=Aleo|Arvo:400,700|Playfair+Display:400,700|Roboto+Mono" rel="stylesheet">
     <link href="//cdn-images.mailchimp.com/embedcode/horizontal-slim-10_7.css" rel="stylesheet" type="text/css">
-    <style type="text/css">
-    	#mc_embed_signup{clear:left; font:18px 'Lato',sans-serif; width:100%;}
-      #mce-EMAIL {
-        height: 50px !important;
-        font-size: 21px !important;
-      }
-
-      #mc_embed_signup .button {
-        height: 50px !important;
-        font-size: 21px !important;
-        background-color: #209cee !important;
-      }
-
-
-    </style>
+    <!-- Open Graph -->
+    <meta property="og:title" content="<%= story.title %>">
+    <meta property="og:site_name" content="FIRE Stories">
+    <meta property="og:url" content="https://www.firestories.co/<%=story.slug %>">
+    <meta property="og:description" content="<%= story.title %>">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="<%= story.img %>">
     <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-102047143-3"></script>
   <script>

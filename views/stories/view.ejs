@@ -24,7 +24,10 @@
 	<section class="section">
 	<div class="columns">
 		<div class="column is-12 content-container">
-			<%- story.content %>
+
+      <% include _share.ejs %>
+        <%- story.content %><br>
+      <% include _share.ejs %>
 		</div>
   </div>
 	</section>

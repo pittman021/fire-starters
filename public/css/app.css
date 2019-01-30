@@ -63,3 +63,8 @@ h5 {
 #hero-title {
   font-size: 74px;
 }
+
+.share-container {
+  margin: 0 auto;
+  max-width: 500px;
+}
