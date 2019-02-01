@@ -81,7 +81,7 @@ module.exports = app => {
     }).then(story => {
       var img = req.body.img;
       var storyData = story.get({ plain: true });
-      var path = `public/images${storyData.img}`;
+      var path = `public/images/uploads/${storyData.img}`;
 
       fs.exists(path, exists => {
         if (exists) {
