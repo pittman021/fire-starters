@@ -49,27 +49,32 @@
         <div class="has-text-centered">
         <h2>Past Interviews</h2>
         </div>
-      <div class="columns is-multiline">
-
-
         <% stories.forEach(function(s) { %>
-          <div class="column is-3">
             <a href="/stories/<%= s.slug %>">
-            <div class="card starter-card">
-              <div class="card-image">
-                <div class="image">
-                  <img src="/images/uploads/<%= s.img %>">
-                </div>
+
+              <div class="card box starter-card">
+                <div class="columns">
+                  <div class="column is-2">
+                    <div class="image">
+                      <img src="/images/uploads/<%= s.img %>">
+                    </div>
+                  </div>
+
+                  <div class="column is-10">
+                    <div class="">
+                      <div class="card-content">
+                        <p class="title is-5"><%= s.title %></p>
+                        <p class="subtitle" id="card-subtitle"><%= s.contact_name %></p>
+                        <span class="tag is-light">42 FI 95% SR 80% RE 2009</span>
+                      </div>
+                    </div>
+                  </div>
+                  </div>
               </div>
-              <div class="card-content">
-                <p class="title is-5"><%= s.title %></p>
-                <p class="subtitle" id="card-subtitle">
-                <%= s.contact_name %>
-                </p>
-            </div>
-            </div>
-          </a>
-          </div>
+
+            </a>
+
+
           <% }); %>
         </div>
       </div>

@@ -68,3 +68,15 @@ h5 {
   margin: 0 auto;
   max-width: 500px;
 }
+
+.box-value {
+  text-align: right;
+}
+
+.flex {
+  display: flex;
+}
+
+.card.box.starter-card {
+  margin-bottom: 25px;
+}

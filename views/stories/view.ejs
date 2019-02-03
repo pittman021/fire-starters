@@ -1,5 +1,4 @@
-
-  <% include _header.ejs %>
+ <% include _header.ejs %>
 
  <% include ../application/_navbar.ejs %>
   <section class="hero is-small is-bold">
@@ -21,17 +20,43 @@
     <a class="button is-info" href="/stories/<%= story.id %>/edit">Edit Story</a>
 
     <% } %>
-	<section class="section">
-	<div class="columns">
-		<div class="column is-12 content-container">
+    <% include _share.ejs %>
+  <section class="story-content">
+  		<div class="content-container">
+        <div class="stats-box box">
+         <nav class="level is-mobile">
+           <div class="level-item has-text-centered">
+             <div class="level-item has-text-centered">
+               <div>
+               <p class="heading">Retirement Age</p>
+               <p class="title">38</p>
+               </div>
+             </div>
+             <div>
+             <p class="heading">Savings Rate</p>
+             <p class="title">65%</p>
+             </div>
+           </div>
+           <div class="level-item has-text-centered">
+             <div>
+             <p class="heading">Amount to Retire</p>
+             <p class="title">$400k</p>
+             </div>
+           </div>
+           <div class="level-item has-text-centered">
+             <div>
+             <p class="heading">Annual Spending</p>
+             <p class="title">$18k</p>
+             </div>
+           </div>
 
-      <% include _share.ejs %>
-        <%- story.content %><br>
-      <% include _share.ejs %>
-		</div>
+         </nav>
+        </div>
+          <%- story.content %><br>
+          <% include _share.ejs %>
+  		</div>
+    </div>
   </div>
-	</section>
-
-</div>
+</section>
 
 <% include ../application/_footer.ejs %>
