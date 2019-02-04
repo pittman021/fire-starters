@@ -5,6 +5,8 @@ const passport = require('passport');
 const methodOverride = require('method-override');
 require('./services/passport');
 
+const bCrypt = require('bcrypt-nodejs');
+
 // configuration
 const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -30,7 +32,24 @@ db.sequelize
     console.log('unable to connect', err);
   });
 
-db.sequelize.sync({ force: true });
+var generateHash = function(password) {
+  return bCrypt.hashSync(password, bCrypt.genSaltSync(8), null);
+};
+const userPassword = generateHash('pass');
+var admin = {
+  id: 0,
+  username: 'tim',
+  password: userPassword,
+  createdAt: new Date(),
+  updatedAt: new Date()
+};
+
+db.User.create(admin).then(newUser => {
+  if (err) throw err;
+  console.log('user created');
+});
+
+// db.sequelize.sync({ force: true });
 
 // ROUTES //
 require('./routes/storiesRoutes')(app);

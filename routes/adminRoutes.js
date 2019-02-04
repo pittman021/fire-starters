@@ -23,9 +23,9 @@ module.exports = app => {
     res.render('admin/login');
   });
 
-  app.get('/admin/signup', function(req, res) {
-    res.render('admin/signup');
-  });
+  // app.get('/admin/signup', function(req, res) {
+  //   res.render('admin/signup');
+  // });
 
   // Logout
   app.get('/admin/logout', (req, res) => {
