@@ -29,28 +29,27 @@
            <div class="level-item has-text-centered">
              <div class="level-item has-text-centered">
                <div>
-               <p class="heading">Retirement Age</p>
-               <p class="title">38</p>
+                 <p class="heading">Retirement Age</p>
+                 <p class="title"><%= story.Contact.retirement_age %></p>
+               </div>
+             </div>
+             <div class="level-item has-text-centered">
+               <div>
+                 <p class="heading">% to FIRE</p>
+                 <p class="title"><%= story.Contact.er_progress %>%</p>
                </div>
              </div>
              <div>
-             <p class="heading">Savings Rate</p>
-             <p class="title">65%</p>
+               <p class="heading">Savings Rate</p>
+               <p class="title"><%= story.Contact.savings_rate %>%</p>
              </div>
            </div>
            <div class="level-item has-text-centered">
              <div>
-             <p class="heading">Amount to Retire</p>
-             <p class="title">$400k</p>
+               <p class="heading">Amount to Retire</p>
+               <p class="title"><%= story.Contact.retirement_amount %>k</p>
              </div>
            </div>
-           <div class="level-item has-text-centered">
-             <div>
-             <p class="heading">Annual Spending</p>
-             <p class="title">$18k</p>
-             </div>
-           </div>
-
          </nav>
         </div>
           <%- story.content %><br>
