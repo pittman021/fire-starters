@@ -44,8 +44,7 @@ var admin = {
   updatedAt: new Date()
 };
 
-db.User.create(admin).then(newUser => {
-  if (err) throw err;
+db.AdminUsers.create(admin).then(newUser => {
   console.log('user created');
 });
 
