@@ -35,16 +35,18 @@ module.exports = app => {
     });
   });
 
-  // admin routes, login, story, new
-  app.post('/stories', isLoggedIn, upload.single('img'), function(req, res) {
-    db.Stories.create({
-      contact_name: req.body.contact_name,
-      title: req.body.title,
-      slug: slug(req.body.title),
-      img: req.file.originalname,
-      content: req.body.content
-    }).then(newStory => {
-      res.redirect('/');
+  // admin routes, login, story, new  upload.single('img')
+  app.post('/stories', function(req, res) {
+    db.Contact.create(req.body.contact).then(newContact => {
+      db.Stories.create({
+        ContactId: newContact.id,
+        title: req.body.stories.title,
+        slug: slug(req.body.stories.title),
+        img: req.body.stories.img,
+        content: req.body.stories.content
+      }).then(newStory => {
+        res.redirect('/');
+      });
     });
   });
 
@@ -106,17 +108,26 @@ module.exports = app => {
 
   app.delete('/stories/:id', function(req, res) {
     db.Stories.findById(req.params.id).then(story => {
-      console.log(story);
       var path = `public/images/${story.img}`;
-      fs.unlink(path, err => {
-        if (err) throw err;
-        story.destroy().then(deletedStory => {
-          res.redirect('/');
-        });
+      //
+      fs.exists(path, exists => {
+        if (exists) {
+          fs.unlink(path, err => {
+            if (err) {
+              console.log(err);
+            } else {
+              story.destroy().then(deletedStory => {
+                res.redirect('/');
+              });
+            }
+          });
+        } else {
+          story.destroy().then(deletedStory => {
+            res.redirect('/');
+          });
+        }
       });
+      // });
     });
-
-    res.redirect('/');
   });
-  // });
 };

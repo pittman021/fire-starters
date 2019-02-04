@@ -52,7 +52,7 @@
         <% stories.forEach(function(s) { %>
             <a href="/stories/<%= s.slug %>">
 
-              <div class="card box starter-card">
+              <div class="starter-card box">
                 <div class="columns">
                   <div class="column is-2">
                     <div class="image">
@@ -62,14 +62,38 @@
 
                   <div class="column is-10">
                     <div class="">
-                      <div class="card-content">
-                        <p class="title is-5"><%= s.title %></p>
-                        <p class="subtitle" id="card-subtitle"><%= s.contact_name %></p>
-                        <span class="tag is-light">42 FI 95% SR 80% RE 2009</span>
-                      </div>
+                        <p class="home-card-title title is-4"><%= s.title %></p>
+                        <p class="heading is-3"><%= s.Contact.name %></p>
+                        <p class=""> <%= s.createdAt %></p>
+                        <div class="field is-grouped">
+                            <div class="control">
+                              <div class="tags has-addons">
+                                <span class="tag is-dark">Age</span>
+                                <span class="tag is-info"><%= s.Contact.retirement_age %></span>
+                              </div>
+                            </div>
+                            <div class="control">
+                              <div class="tags has-addons">
+                                <span class="tag is-dark">RE</span>
+                                <span class="tag is-info"><%= s.Contact.er_progress %>%</span>
+                              </div>
+                            </div>
+                            <div class="control">
+                              <div class="tags has-addons">
+                                <span class="tag is-dark">SR</span>
+                                <span class="tag is-info"><%= s.Contact.savings_rate %>%</span>
+                              </div>
+                            </div>
+                            <div class="control">
+                              <div class="tags has-addons">
+                                <span class="tag is-dark">RA</span>
+                                <span class="tag is-info">$<%= s.Contact.retirement_amount %>k</span>
+                              </div>
+                            </div>
+                          </div>
                     </div>
                   </div>
-                  </div>
+                </div>
               </div>
 
             </a>

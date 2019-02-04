@@ -1,44 +1,46 @@
 'use strict';
 
-var slug = require('slug');
-
 module.exports = {
   up: (queryInterface, Sequelize) => {
     var content = `Coming Soon!`;
 
-    var s = {
+    var mmm = {
       id: 0,
-      contact_name: 'Mr Money Mustache',
-      title: 'How a 36 year old acheived FIRE through badass living & attitude',
-      slug: slug('How a 36 year old acheived FIRE through badass living & attitude'),
-      img: 'mr-money-mustache.jpeg',
-      content: content,
+      name: 'Mr Money Mustache',
+      savings_rate: 65,
+      retirement_age: 32,
+      withdrawal_rate: 4,
+      retirement_year: 2009,
+      er_progress: 100,
+      retirement_amount: 485,
       createdAt: new Date(),
       updatedAt: new Date()
     };
 
     var erd = {
       id: 1,
-      contact_name: 'Early Retirement Dude',
-      title: 'How the 10 commandments of early retirement helped Early Retirement Dude acheive his goals',
-      slug: slug('The 10 commandments of early retirement dude'),
-      img: 'early-retirement-dude.png',
-      content: content,
+      name: 'Early Retirement Dude',
+      savings_rate: 58,
+      retirement_age: 44,
+      withdrawal_rate: 6,
+      retirement_year: 2012,
+      er_progress: 100,
+      retirement_amount: 575,
       createdAt: new Date(),
       updatedAt: new Date()
     };
 
     var newArray = [];
 
-    newArray.push(s);
+    newArray.push(mmm);
 
-    console.log(`created ${s.contact_name} story`);
+    console.log(`created ${mmm.name} contact`);
 
     newArray.push(erd);
 
-    console.log(`created ${erd.contact_name} story`);
+    console.log(`created ${erd.name} contact`);
 
-    return queryInterface.bulkInsert('Stories', newArray, {});
+    return queryInterface.bulkInsert('Contacts', newArray, {});
     /*
       Add altering commands here.
       Return a promise to correctly handle asynchronicity.
@@ -52,7 +54,7 @@ module.exports = {
   },
 
   down: (queryInterface, Sequelize) => {
-    return queryInterface.bulkDelete('Stories', null, {});
+    return queryInterface.bulkDelete('Contacts', null, {});
     /*
       Add reverting commands here.
       Return a promise to correctly handle asynchronicity.

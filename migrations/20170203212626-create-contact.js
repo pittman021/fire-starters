@@ -1,32 +1,33 @@
 'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('Stories', {
+    return queryInterface.createTable('Contacts', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      ContactId: {
-        type: Sequelize.INTEGER,
-        onDelete: 'CASCADE',
-        references: {
-          model: 'Contacts',
-          key: 'id'
-        }
-      },
-      title: {
+      name: {
         type: Sequelize.STRING
       },
-      slug: {
-        type: Sequelize.STRING
+      savings_rate: {
+        type: Sequelize.SMALLINT
       },
-      img: {
-        type: Sequelize.STRING
+      retirement_age: {
+        type: Sequelize.SMALLINT
       },
-      content: {
-        type: Sequelize.TEXT
+      withdrawal_rate: {
+        type: Sequelize.SMALLINT
+      },
+      retirement_year: {
+        type: Sequelize.SMALLINT
+      },
+      er_progress: {
+        type: Sequelize.SMALLINT
+      },
+      retirement_amount: {
+        type: Sequelize.SMALLINT
       },
       createdAt: {
         allowNull: false,
@@ -39,6 +40,6 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('Stories');
+    return queryInterface.dropTable('Contacts');
   }
 };

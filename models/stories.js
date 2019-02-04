@@ -1,9 +1,8 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  const stories = sequelize.define(
+  const Story = sequelize.define(
     'Stories',
     {
-      contact_name: DataTypes.STRING,
       title: DataTypes.STRING,
       slug: DataTypes.STRING,
       img: DataTypes.STRING,
@@ -11,8 +10,12 @@ module.exports = (sequelize, DataTypes) => {
     },
     {}
   );
-  stories.associate = function(models) {
+  Story.associate = function(models) {
+    Story.belongsTo(models.Contact, {
+      foreignKey: 'ContactId',
+      onDelete: 'CASCADE'
+    });
     // associations can be defined here
   };
-  return stories;
+  return Story;
 };
