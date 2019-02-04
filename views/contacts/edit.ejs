@@ -1,0 +1,45 @@
+<h3>Contact</h3>
+
+<%= JSON.stringify(contact) %>
+
+<form action="/contacts/<%= contact.id %>/?_method=PUT" method="POST" >
+
+<div class="field">
+	<div class="control">
+		<label class="label">Name<label>
+			<input class="input" value="<%= contact.name %>" type="text" name="contact[name]" />
+	</div>
+</div>
+
+	<div class="control">
+		<label class="label">Savings Rate<label>
+			<input class="input" type="text" value=<%= contact.savings_rate %> name="contact[savings_rate]" />
+	</div>
+
+	<div class="control">
+		<label class="label">Retirement Age<label>
+			<input class="input" type="text" value=<%= contact.retirement_age %> name="contact[retirement_age]" />
+	</div>
+
+	<div class="control">
+		<label class="label">withdrawal Rate<label>
+			<input class="input" type="text"value=<%= contact.withdrawal_rate %> name="contact[withdrawal_rate]" />
+	</div>
+
+	<div class="control">
+		<label class="label">Retirement Year<label>
+			<input class="input" type="text" value=<%= contact.retirement_year %> name="contact[retirement_year]" />
+	</div>
+
+	<div class="control">
+		<label class="label">Early Retirement %<label>
+			<input class="input" type="text" value=<%= contact.er_progress %> name="contact[er_progress]" />
+	</div>
+
+	<div class="control">
+		<label class="label">REtirement Amount<label>
+			<input class="input" type="text" value=<%= contact.retirement_amount %> name="contact[retirement_amount]" />
+	</div>
+
+<input class="button" type="submit">
+</form>

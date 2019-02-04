@@ -19,6 +19,25 @@ const upload = multer({ storage: storage });
 module.exports = app => {
   // stories view //
 
+  app.get('/contacts/:id/edit', isLoggedIn, function(req, res) {
+    db.Contact.findOne({ where: { id: req.params.id } }).then(contact => {
+      res.render('contacts/edit', { contact: contact });
+    });
+  });
+
+  app.put('/contacts/:id', isLoggedIn, function(req, res) {
+    const updates = req.body.contact;
+    db.Contact.find({
+      where: { id: req.params.id }
+    })
+      .then(contact => {
+        return contact.updateAttributes(updates);
+      })
+      .then(updatedContact => {
+        res.redirect('/');
+      });
+  });
+
   app.get('/stories/new', isLoggedIn, function(req, res) {
     res.render('stories/new');
   });
@@ -28,7 +47,14 @@ module.exports = app => {
   });
 
   app.get('/stories/:slug', (req, res) => {
-    db.Stories.find({ where: { slug: req.params.slug } }).then(story => {
+    db.Stories.find({
+      where: { slug: req.params.slug },
+      include: [
+        {
+          model: db.Contact
+        }
+      ]
+    }).then(story => {
       var article_markdown = md.render(story.content);
       story.content = article_markdown;
       res.render('stories/view', { story: story });
