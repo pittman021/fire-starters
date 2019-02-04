@@ -30,7 +30,7 @@ db.sequelize
     console.log('unable to connect', err);
   });
 
-db.sequelize.sync();
+db.sequelize.sync({ force: true });
 
 // ROUTES //
 require('./routes/storiesRoutes')(app);
