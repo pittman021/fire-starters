@@ -32,23 +32,23 @@ db.sequelize
     console.log('unable to connect', err);
   });
 
-var generateHash = function(password) {
-  return bCrypt.hashSync(password, bCrypt.genSaltSync(8), null);
-};
-const userPassword = generateHash('pass');
-var admin = {
-  id: 0,
-  username: 'tim',
-  password: userPassword,
-  createdAt: new Date(),
-  updatedAt: new Date()
-};
+// var generateHash = function(password) {
+//   return bCrypt.hashSync(password, bCrypt.genSaltSync(8), null);
+// };
+// const userPassword = generateHash('pass');
+// var admin = {
+//   id: 0,
+//   username: 'tim',
+//   password: userPassword,
+//   createdAt: new Date(),
+//   updatedAt: new Date()
+// };
+//
+// db.AdminUsers.create(admin).then(newUser => {
+//   console.log('user created');
+// });
 
-db.AdminUsers.create(admin).then(newUser => {
-  console.log('user created');
-});
-
-// db.sequelize.sync({ force: true });
+db.sequelize.sync();
 
 // ROUTES //
 require('./routes/storiesRoutes')(app);
