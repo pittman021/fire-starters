@@ -12,22 +12,22 @@ module.exports = {
         type: Sequelize.STRING
       },
       savings_rate: {
-        type: Sequelize.TEXT
+        type: Sequelize.SMALLINT
       },
       retirement_age: {
-        type: Sequelize.TEXT
+        type: Sequelize.SMALLINT
       },
       withdrawal_rate: {
-        type: Sequelize.TEXT
+        type: Sequelize.SMALLINT
       },
       retirement_year: {
-        type: Sequelize.TEXT
+        type: Sequelize.SMALLINT
       },
       er_progress: {
-        type: Sequelize.TEXT
+        type: Sequelize.SMALLINT
       },
       retirement_amount: {
-        type: Sequelize.TEXT
+        type: Sequelize.SMALLINT
       },
       createdAt: {
         allowNull: false,
